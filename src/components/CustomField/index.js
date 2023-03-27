@@ -11,7 +11,7 @@ function CustomField(props) {
                meta,
              }) => (
                <div>
-                 <input type="text" placeholder={props.placeholder} {...field} style={props.style ? props.style : null}/>
+                 <input autocomplete='off' type={props.type} placeholder={props.placeholder} {...field} style={props.style ? props.style : null}/>
                  {meta.touched && meta.error && (
                    <div className={styles.error}>{meta.error}</div>
                  )}

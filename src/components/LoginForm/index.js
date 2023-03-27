@@ -43,8 +43,8 @@ const Login = (props) => {
                     return( 
                     <Form className={styles.form}>
                         <p className={styles.title}>LOGIN TO YOUR ACCOUNT</p>
-                        <CustomField name='email' placeholder='Enter your email' style={inputStyle}/>
-                        <CustomField name='password' placeholder='Enter your password' style={inputStyle}/>
+                        <CustomField type='text' name='email' placeholder='Enter your email' style={inputStyle}/>
+                        <CustomField type='password' name='password' placeholder='Enter your password' style={inputStyle}/>
                         <div className={styles.remind}>
                             <label>
                                 <input type='checkbox'/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Formik, Form, Field} from 'formik';
 import CustomField from '../CustomField';
-import { LoginSchema } from '../../validators/validationSchems';
+import { SignupSchema } from '../../validators/validationSchems';
 import styles from './Login.module.css';
 import Header from '../Header/Header';
 
@@ -36,15 +36,17 @@ const Login = (props) => {
             <Formik
             initialValues={initialState}
             onSubmit={submitHandler}
-            validationSchema={LoginSchema}
+            validationSchema={SignupSchema}
             >
                 {(formikProps)=>{
                     console.log(formikProps)
                     return( 
                     <Form className={styles.form}>
-                        <p className={styles.title}>LOGIN TO YOUR ACCOUNT</p>
-                        <CustomField name='email' placeholder='Enter your email' style={inputStyle}/>
-                        <CustomField name='password' placeholder='Enter your password' style={inputStyle}/>
+                        <p className={styles.title}>SIGNUP</p>
+                        <CustomField type='text' name='firstName' placeholder='Enter your firstname' style={inputStyle}/>
+                        <CustomField type='text' name='lastName' placeholder='Enter your lastname' style={inputStyle}/>
+                        <CustomField type='text' name='email' placeholder='Enter your email' style={inputStyle}/>
+                        <CustomField type='password' name='password' placeholder='Enter your password' style={inputStyle}/>
                         <div className={styles.remind}>
                             <label>
                                 <input type='checkbox'/>
