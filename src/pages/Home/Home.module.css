@@ -1,0 +1,80 @@
+.body{
+    min-height: 100%;
+    overflow: hidden;
+    font-family: 'poppins', sans-serif;
+}
+
+.main-content{
+    min-height: 100vh;
+    background-image:linear-gradient(rgba(0,0,0,0.60),rgba(0,0,0,0.60)), url('../../../public/img/main-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main-article{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    transform: translateY(25vh);
+}
+.main-article h1{
+    font-size: 36px;
+    color: white;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+.main-article p{
+    font-size: 18px;
+    color:#7e7e7e;
+    line-height: 1.5;
+    margin-bottom: 50px;
+}
+.main-btn{
+    color: white;
+    padding: 12px 25px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #f15048;
+    border-radius: 8px;
+}
+.main-btn:hover{
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+.main-btn:active{
+    font-size: 0.9em;
+    transition: 0.5s;
+}
+
+
+
+
+
+.content{
+    width: 80vw;
+    margin: 0 auto;
+}
+.homeBox{
+    background-color: #181818;
+    padding: 20px 0px;
+}
+.title{
+    display: flex;
+}
+.course{
+    color: white;
+    align-self: center;
+    margin-right: 30px;
+}
+.course p{
+    padding-bottom: 10px;
+}
+.title img{
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.79);
+    border-radius: 10%;
+    -webkit-box-shadow: inset 0px 0px 36px 10px rgb(255, 255, 255); 
+    box-shadow: inset 0px 0px 36px 10px rgb(255, 255, 255);
+}

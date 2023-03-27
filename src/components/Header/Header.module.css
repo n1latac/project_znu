@@ -1,0 +1,30 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+.logo{
+    color: white;
+    align-self: center;
+}
+.menu{
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.menu li{
+    color: white;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+.menu a{
+    color: white
+}
+.menu li:first-child{
+    margin-left: 0;
+}
+.menu li:hover{
+    background-color: grey;
+    border-radius: 3px;
+    transition: 0.5s;
+}
