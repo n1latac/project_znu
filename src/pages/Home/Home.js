@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import styles from './Home.module.css';
+import { Link } from 'react-router-dom';
 //import img from '../../img/title.jpg'
 
 
@@ -12,7 +13,7 @@ export default function Home() {
          <div className={styles['main-article']}>
            <h1>Best html,css,JavaScript courses</h1>
            <p>lorem ipsu lorem lorem lorem lorem lorem lore  lorenm lorem lorem</p>
-           <button className={styles['main-btn']}>Start courses</button>
+           <Link to='/Html'><button className={styles['main-btn']}>Start courses</button></Link>
          </div>
       </section>
         <div className={styles.homeBox}>

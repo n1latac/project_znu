@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 export default function Header(props) {
   const {style} = props;
   return (
-    <div className={styles.footer} style={style ? style : null}>
+      <div className={styles.header} style={style ? style : null}>
         <p className={styles.logo}>Logo</p>
         <ul className={styles.menu}>
-            <li><Link to='/'>Courses</Link></li>
-            <li>About</li>
+            <li>Courses</li>
+            <li><Link to='/'>Home</Link></li>
             <li><Link to='/Login'>Login</Link></li>
             <li><Link to='/Signup'>Signup</Link></li>
         </ul>
-    </div>
+      </div>
   )
 }

@@ -1,7 +1,5 @@
 .body{
-    min-height: 100%;
-    overflow: hidden;
-    font-family: 'poppins', sans-serif;
+    font-family: 'poppins', sans-serif /* overflow: hidden (-sticky)*/
 }
 
 .main-content{
