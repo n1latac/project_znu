@@ -1,0 +1,9 @@
+.blockStyle{
+    width: 100px;
+    background-color: grey;
+    line-height: 1em;
+}
+.notes{
+    background-color: rgb(113, 195, 168);
+    padding: 10px 15px;
+}
