@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
+import CustomLink from '../CustomLink';
 
 export default function Header(props) {
   const {style} = props;
@@ -9,9 +10,9 @@ export default function Header(props) {
         <p className={styles.logo}>Logo</p>
         <ul className={styles.menu}>
             <li>Courses</li>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/Login'>Login</Link></li>
-            <li><Link to='/Signup'>Signup</Link></li>
+            <li><CustomLink to='/'>Home</CustomLink></li>
+            <li><CustomLink to='/Login'>Login</CustomLink></li>
+            <li><CustomLink to='/Signup'>Signup</CustomLink></li>
         </ul>
       </div>
   )

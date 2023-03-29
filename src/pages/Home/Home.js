@@ -2,14 +2,18 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
+import DropDownMenu from '../../components/DropDownMenu/DropDownMenu';
+import { navItems } from '../../components/NavItems/NavItems';
 //import img from '../../img/title.jpg'
 
+console.log(navItems);
 
 export default function Home() {
   return (
     <div className={styles.body}>
       <section className={styles['main-content']}>
       <Header style={{padding: '0vh 10vw', margin: '0 auto', background: 'transparent', backdropFilter: 'blur(20px)'}}/>
+      <DropDownMenu obj={navItems}/>
          <div className={styles['main-article']}>
            <h1>Best html,css,JavaScript courses</h1>
            <p>lorem ipsu lorem lorem lorem lorem lorem lore  lorenm lorem lorem</p>
