@@ -6,32 +6,25 @@
 .html-content{
     display: flex;
     background-color: rgb(228, 230, 231);
+    position: relative;
 }
 .html-navbar{
     width: 20%;
     border: 1px solid black;
-    min-height: 100%;
-}
-.html-main{
-    width: 80%;
-}
-.html-main h2{
-    font-size: 36px;
-    font-weight: 700;
-    
-}
-.html-main h3{
-    font-size: 24px;
-    font-weight: 500;
-    color: rgb(48, 48, 142);
-}
-.html-main h2, h3 {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 10vh;
+    max-height: 90vh;
+    z-index: 1;
     padding-left: 30px;
+    padding-top: 00px;
 }
-.html-main p{
-    margin-left: 60px;
-    margin-right: 40px;
+.html-navbar li{
+    padding-top: 15px;
+    color: black;
 }
-.html-main h2, h3, p{
-    margin-bottom: 20px;
+.html-navbar:nth-child(n){
+    padding-bottom: 10px;
 }
+

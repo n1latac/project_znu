@@ -13,11 +13,10 @@ export default function Home() {
     <div className={styles.body}>
       <section className={styles['main-content']}>
       <Header style={{padding: '0vh 10vw', margin: '0 auto', background: 'transparent', backdropFilter: 'blur(20px)'}}/>
-      <DropDownMenu obj={navItems}/>
          <div className={styles['main-article']}>
            <h1>Best html,css,JavaScript courses</h1>
            <p>lorem ipsu lorem lorem lorem lorem lorem lore  lorenm lorem lorem</p>
-           <Link to='/Html'><button className={styles['main-btn']}>Start courses</button></Link>
+           <Link to='Course/html/introduction'><button className={styles['main-btn']}>Start courses</button></Link>
          </div>
       </section>
         <div className={styles.homeBox}>

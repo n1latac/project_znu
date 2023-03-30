@@ -1,9 +1,67 @@
+*{
+    list-style-type: none;
+}
+
+.html-main{
+    width: 100%;
+    --line-block-color: rgb(216, 216, 216);
+    --line-false-block-color: rgba(241, 138, 166, 0.3);
+    --notes-background-color: rgb(207, 224, 238);
+    --notes-text-color: rgba(83,78,78);
+}
+.fw700{
+    font-weight: 700;
+}
+
+
+
+.html-main h2{
+    font-size: 36px;
+    font-weight: 700;
+    
+}
+.html-main h3{
+    font-size: 24px;
+    font-weight: 500;
+    color: rgb(48, 48, 142);
+}
+.html-main h2, h3 {
+    padding-left: 30px;
+}
+.html-main p{
+    margin-left: 60px;
+    margin-right: 40px;
+}
+.html-main h2, h3, p{
+    margin-bottom: 20px;
+}
 .blockStyle{
-    width: 100px;
-    background-color: grey;
-    line-height: 1em;
+    background-color: var(--line-block-color);
+    line-height: 3em;
+    margin: 0px 40px 20px 60px;
+    padding-left: 20px;
+}
+.falseBlockStyle{
+    background-color: var(--line-false-block-color);
+    line-height: 3em;
+    margin: 0px 40px 20px 60px;
+    padding-left: 20px;
 }
 .notes{
-    background-color: rgb(113, 195, 168);
-    padding: 10px 15px;
+    background-color: var(--notes-background-color);
+    color: var(--notes-text-color);
+    padding: 15px 20px;
+    margin: 0px 40px 20px 60px;
+}
+.first-elem{
+    max-width: 700px;
+    margin: 0px 40px 20px 60px;
+}
+.whatIsHtml-list li{
+    margin: 0px 40px 20px 80px;
+}
+.whatIsHtml-example{
+    border: 1px solid rgb(30, 29, 29);
+    background-color: white;
+    margin: 0px 40px 20px 60px;
 }

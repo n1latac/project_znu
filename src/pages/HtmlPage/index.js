@@ -9,14 +9,13 @@ function HtmlPage() {
     <div className={styles['html-body']}>
     <Header style={{padding: '0vh 10vw', margin: '0 auto', backgroundColor: 'black', backdropFilter: 'blur(20px)'}}/>
     <div className={styles['html-content']}>
-        <div className={styles['html-navbar']}>
-        <CustomLink to='introduction'><p>Intro</p></CustomLink>
-        <CustomLink to='What_is_html'><p>What is html?</p></CustomLink>
+        <ul className={styles['html-navbar']}>
+        <li><Link style={{color: 'black'}} to='introduction'>Intro</Link></li>
+        
+        <li><Link to='What_is_html' style={{color: 'black'}}>What is html?</Link></li> 
           
-        </div>
-        <section className={styles['html-main']}>
+        </ul>
           <Outlet/>
-        </section>
     </div>
 </div>
   )

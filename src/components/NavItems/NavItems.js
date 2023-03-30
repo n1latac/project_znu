@@ -1,8 +1,9 @@
 
 export const navItems = [
     {
-        path: '/html',
-        title: 'html'
+        path: '/Course/html/introduction',
+        title: 'html',
+        name: 'Courses'
     }
     
 ]
