@@ -10,9 +10,9 @@ function HtmlPage() {
     <Header style={{padding: '0vh 10vw', margin: '0 auto', backgroundColor: 'black', backdropFilter: 'blur(20px)'}}/>
     <div className={styles['html-content']}>
         <ul className={styles['html-navbar']}>
-        <li><CustomLink to='/Course/html/introduction'>Intro</CustomLink></li>
+        <li><CustomLink to='/Course/html/introduction' colorText='black'>Intro</CustomLink></li>
         
-        <li><CustomLink to='/Course/html/What_is_html'>What is html?</CustomLink></li> 
+        <li><CustomLink to='/Course/html/What_is_html' colorText='black'>What is html?</CustomLink></li> 
           
         </ul>
           <Outlet/>
