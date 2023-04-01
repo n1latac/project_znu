@@ -5,7 +5,7 @@
 
 .html-content{
     display: flex;
-    background-color: rgb(228, 230, 231);
+    background-color: rgb(201, 204, 206); /* rgb(228, 230, 231)*/
     position: relative;
 }
 .html-navbar{

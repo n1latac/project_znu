@@ -1,7 +1,7 @@
 
 export const navItems = [
     {
-        path: '/Course/html/introduction',
+        path: '/Course/html',
         title: 'html',
         name: 'Courses'
     }
