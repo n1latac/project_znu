@@ -1,4 +1,5 @@
 import { Link, useMatch } from 'react-router-dom';
+import { navItems } from '../NavItems/NavItems';
 
 function CustomLink({children, to, colorText, ...props}) {
     const match = useMatch({
@@ -6,7 +7,7 @@ function CustomLink({children, to, colorText, ...props}) {
       end: to.length === 1, 
     })
     let a;
-    if(to === '/Course/html'){
+    if(to === '/Course/html' || to === '/Course/css'){
       a = to + '/introduction'
     }else{
       a = false

@@ -3,12 +3,13 @@
 }
 
 
-.html-content{
+.courses-content{
     display: flex;
     background-color: rgb(201, 204, 206); /* rgb(228, 230, 231)*/
     position: relative;
+    min-height: 100vh;
 }
-.html-navbar{
+.courses-navbar{
     width: 20%;
     border: 1px solid black;
     display: flex;
@@ -20,11 +21,11 @@
     padding-left: 30px;
     padding-top: 00px;
 }
-.html-navbar li{
+.courses-navbar li{
     padding-top: 15px;
     color: black;
 }
-.html-navbar:nth-child(n){
+.courses-navbar:nth-child(n){
     padding-bottom: 10px;
 }
 
