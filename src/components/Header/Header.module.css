@@ -8,9 +8,12 @@
     height: 10vh;
 }
 .logo{
-    color: white;
-    align-self: center;
+    align-self: left;
+    width: 60px;
+    color: rgb(2, 2, 2);
+    z-index: 2;
 }
+
 .menu{
     color: white;
     display: flex;

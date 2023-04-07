@@ -13,7 +13,7 @@ export default function Header(props) {
   return (
     <>
       <div className={styles.header} style={style ? style : null}>
-        <p className={styles.logo}>Logo</p>
+        <Link to='/'><img className={styles['logo']} src='/img/logo.png'/></Link>
         <ul className={styles.menu}>
             <li className={styles['header-li']} onMouseEnter={()=>{setDropDown(!dropDown)}} onMouseLeave={()=>setDropDown(false)}>Courses
             {dropDown ? <DropDownMenu obj={navItems}/> : null}</li>
