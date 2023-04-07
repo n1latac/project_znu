@@ -80,7 +80,7 @@ const buttonHandler = () =>{
       </div>
       <p>Ви можете спробувати цю версію в нашій демонстрації нижче:</p>
       <div className={styles['course-example']} style={{maxHeight: '150px', overflow: 'auto'}}>
-        <button style={{margin: '20px 20px'}} onClick={buttonHandler}>Click me!</button>
+        <button style={{margin: '20px 20px', border: '1px solid white', borderRadius: '5px', padding: '5px'}} onClick={buttonHandler}>Click me!</button>
         <p>{state}</p>
       </div>
       <p>{`Ця демонстрація має ті самі функціональні можливості, що й у попередніх двох розділах, за винятком того, що елемент <button> містить вбудований обробник onclick, який запускає функцію під час натискання кнопки.`}</p>
