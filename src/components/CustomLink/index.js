@@ -7,7 +7,7 @@ function CustomLink({children, to, colorText, ...props}) {
       end: to.length === 1, 
     })
     let a;
-    if(to === '/Course/html' || to === '/Course/css'){
+    if(to === '/Course/html' || to === '/Course/css' || to === '/Course/js'){
       a = to + '/introduction'
     }else{
       a = false

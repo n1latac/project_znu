@@ -14,7 +14,7 @@ function CssPage() {
         
         <li><CustomLink to='/Course/css/fonts_text' colorText='black'>Шрифти та текст</CustomLink></li>
         <li><CustomLink to='/Course/css/blocks' colorText='black'>Блоки, блоки і ще раз блоки</CustomLink></li> 
-           
+        <li><CustomLink to='/Course/css/conclusion' colorText='black'>Результат першої роботи</CustomLink></li>  
         </ul>
           <Outlet/>
     </div>
