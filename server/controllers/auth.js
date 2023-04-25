@@ -1,5 +1,6 @@
 import User from "../models/User.js";
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 //Register user
 export const register = async (req, res) => {
     try{
@@ -21,7 +22,7 @@ export const register = async (req, res) => {
 
         await newUser.save(); //сохраняем пользователя в БД
 
-        res.json({
+        return res.json({
             newUser, message: 'Реєстрація пройшла успішно.'
         })
     }catch(err){
@@ -31,16 +32,54 @@ export const register = async (req, res) => {
 //Login user
 export const login = async (req, res) => {
     try{
+        const {email, password} = req.body;
 
+        const user = await User.findOne({email})
+
+        if(!user){
+            return res.json({message: 'Немає такого користувача.'})
+        }
+
+        const isPasswordCorrect = await bcrypt.compare(password, user.password)  //сравниваем обычный пароль с хэшированым
+        
+        if(!isPasswordCorrect){
+            res.json({message: 'Невірний пароль.'})
+        }
+
+        const token = jwt.sign({
+            id: user.id  //зашифровка user_id в наш токен
+        },
+        process.env.JWT_SECRET, //строка с помощью которой будем потом считывать наш user_id
+        {expiresIn: '7d'})
+
+        return res.json({
+            token, user, message: 'Ви увійшли в систему'
+        })
     }catch(err){
-        res.json({message: ''})
+        res.json({message: 'Помилка при авторизації користувача.'})
     }
 }
 //Get Me
-export const getMe = async (req, res) => {
+export const getMe = async (req, res) => {  // ,будет срабатовать при обновлении страницы, что бы заново не логинится 
     try{
+        const {userId} = req;
+        const user = await User.findById(userId)
+
+        if(!user){
+            return res.json({message: 'Немає такого користувача.'})
+        }
+
+        const token = jwt.sign({ //опять создаем токен
+            id: user.id  
+        },
+        process.env.JWT_SECRET, 
+        {expiresIn: '7d'})
+
+        return res.json({
+            user, token
+        })
 
     }catch(err){
-        res.json({message: ''})
+        res.json({message: 'Нема доступа.'})
     }
 }
