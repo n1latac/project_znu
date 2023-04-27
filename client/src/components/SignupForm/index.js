@@ -17,7 +17,7 @@ const Login = (props) => {
         padding: '0px 15px',
         margin: '0px 0px 20px 0px',
         fontSize: '16px',
-        color: 'white',
+        color: 'black',
         lineHeight: '3em',
         borderRadius: '5px',
         border: '1px solid white',
