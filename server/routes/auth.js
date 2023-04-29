@@ -5,7 +5,7 @@ import { checkAuth } from "../midllewares/checkAuth.js";
 const router = new Router()
 
 //Register
-router.post('/register',register)
+router.post('/signup',register)
 //Login
 router.post('/login', login)
 //Get Me

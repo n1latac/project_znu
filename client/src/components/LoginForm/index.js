@@ -1,16 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Formik, Form, Field} from 'formik';
 import CustomField from '../CustomField';
 import { LoginSchema } from '../../validators/validationSchems';
 import styles from './LogInForm.module.css';
 import Header from '../Header/Header';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkAuth, loginUser } from '../../redux/features/auth/authSlice';
+import {toast} from 'react-toastify'
 
+const initialState ={
+    email: '',
+    password: '',
+}
 const Login = (props) => {
-    const initialState ={
-        email: '',
-        password: '',
-        rememberUser: false,
+    const isAuth = useSelector(checkAuth);
+    const dispatch = useDispatch()
+    const {status} = useSelector(state => state.auth)
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        if(status){
+            toast(status)
+        }
+        if(isAuth){
+            navigate('/')
+        }
+    },[status, isAuth, navigate])
+
+    const submitHandler = (values,{resetForm}) => {
+        console.log(values);
+         try{
+             dispatch(loginUser(values));
+             resetForm()
+         }catch(err){
+             console.log(err)
+         }
     }
+
 
     const inputStyle = {
         width: '100%',
@@ -24,9 +51,6 @@ const Login = (props) => {
         boxSizing: 'border-box',
     }
 
-    const submitHandler = (values, actions) => {
-
-    }
 
     return (
         <section className={styles.background}>
@@ -39,18 +63,14 @@ const Login = (props) => {
             validationSchema={LoginSchema}
             >
                 {(formikProps)=>{
-                    console.log(formikProps)
+                    //console.log(formikProps)
                     return( 
-                    <Form className={styles.form}>
+                    <Form className={styles.form} >
                         <p className={styles.title}>LOGIN TO YOUR ACCOUNT</p>
                         <CustomField type='text' name='email' placeholder='Enter your email' style={inputStyle}/>
                         <CustomField type='password' name='password' placeholder='Enter your password' style={inputStyle}/>
                         <div className={styles.remind}>
-                            <label>
-                                <input type='checkbox'/>
-                                Remember Me
-                            </label>
-                            <a href='#'>Forgot Password</a>
+                            <Link to='/Signup'>Нет аккаунта?</Link>
                         </div>
                         <button type='submit' className={styles.loginButton}>LOGIN</button>
                     </Form>

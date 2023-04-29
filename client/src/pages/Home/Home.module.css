@@ -25,17 +25,20 @@
     font-size: 18px;
     color:#7e7e7e;
     line-height: 1.5;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
 .main-btn{
     color: white;
-    padding: 12px 25px;
+    padding: 15px 25px;
     letter-spacing: 1.5px;
+    line-height: 0;
     text-transform: uppercase;
     text-decoration: none;
     background-color: #f15048;
     border-radius: 8px;
     cursor: pointer;
+    width: 200px;
+    margin: 20px auto 0px auto;
 }
 .main-btn:hover{
     background-color: white;

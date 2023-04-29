@@ -4,11 +4,14 @@ import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
 import DropDownMenu from '../../components/DropDownMenu/DropDownMenu';
 import { navItems } from '../../components/NavItems/NavItems';
+import { useSelector } from 'react-redux';
+import { checkAuth } from '../../redux/features/auth/authSlice';
 //import img from '../../img/title.jpg'
 
 console.log(navItems);
 
 export default function Home() {
+  const isAuth = useSelector(checkAuth)
   return (
     <div className={styles.body}>
       <section className={styles['main-content']}>
@@ -16,7 +19,8 @@ export default function Home() {
          <div className={styles['main-article']}>
            <h1>Best html,css,JavaScript courses</h1>
            <p>lorem ipsu lorem lorem lorem lorem lorem lore  lorenm lorem lorem</p>
-           <Link to='Course/html/introduction'><button className={styles['main-btn']}>Start courses</button></Link>
+           {isAuth ? <Link to='Course/html/introduction' className={styles['main-btn']}>Start courses</Link> : 
+           <a className={styles['main-btn']} title='нужно зарегестрироваться'>Start courses</a> }
          </div>
       </section>
         <div className={styles.homeBox}>

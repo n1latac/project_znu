@@ -19,11 +19,19 @@ export const register = async (req, res) => {
             email,
             password: hash
         })
+        
+        const token = jwt.sign({
+            id: newUser._id  //зашифровка user_id в наш токен
+        },
+        process.env.JWT_SECRET, //строка с помощью которой будем потом считывать наш user_id
+        {expiresIn: '7d'})
 
         await newUser.save(); //сохраняем пользователя в БД
 
         return res.json({
-            newUser, message: 'Реєстрація пройшла успішно.'
+            newUser,
+            token,
+            message: 'Реєстрація пройшла успішно.'
         })
     }catch(err){
         res.json({message: 'Помилка при реєстрації користувача.'})

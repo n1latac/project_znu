@@ -4,7 +4,7 @@ import SignupPage from './pages/SignupPage/Signup';
 import HtmlPage from "./pages/CoursePages/HtmlPage";
 import CssPage from "./pages/CoursePages/CssPage";
 import JsPage from "./pages/CoursePages/JsPage";
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { Routes,Route } from "react-router-dom";
 import HtmlIntro from "./markup/Html/HtmlIntro";
 import WhatIsHtml from "./markup/Html/WhatIsHtml";
 import CssIntro from "./markup/Css/CssIntro";
@@ -16,16 +16,31 @@ import WhatIsJs from "./markup/Js/WhatIsJs";
 import WhatJsDoing from "./markup/Js/WhatJsDoing";
 import WhatJsDoingOnPage from "./markup/Js/WhatJsDoingOnPage";
 import AddingJs from "./markup/Js/AddingJs";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { checkAuth, getMe } from "./redux/features/auth/authSlice";
 
 
 function App() {
+  const isAuth = useSelector(checkAuth)
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(getMe())
+  },[])
+
   return (
-    <BrowserRouter>
+    <>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="Login" element={<LoginPage/>}/>
         <Route path="Signup" element={<SignupPage/>}/>
-        <Route path="Course/html/*" element={<HtmlPage/>}>
+        {isAuth ? (
+          <>
+          <Route path="Course/html/*" element={<HtmlPage/>}>
           <Route path="introduction" element={<HtmlIntro/>}/>
           <Route path="What_is_html" element={<WhatIsHtml/>}/>
         
@@ -43,8 +58,12 @@ function App() {
           <Route path="what_js_doing_on_your_page" element={<WhatJsDoingOnPage/>}/>
           <Route path="adding_js_on_your_page" element={<AddingJs/>}/>
         </Route>
+        </>
+        ) : null}
+        
       </Routes>
-    </BrowserRouter>
+      <ToastContainer position='bottom-right'/>
+      </>
   );
 }
 
