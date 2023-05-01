@@ -31,7 +31,7 @@ export default function Header(props) {
             {dropDown ? <DropDownMenu obj={navItems}/> : null}</li>
             <CustomLink to='/'><li className={styles['header-li']}>Home</li></CustomLink>
             {isAuth ? (
-              <Link to='/' style={{textDecoration: 'none'}}><li onClick={logoutHandler} className={styles['header-li']}>Выйти</li></Link>
+              <Link to='/' style={{textDecoration: 'none'}}><li onClick={logoutHandler} className={styles['header-li']}>Вийти</li></Link>
             ):(
               <>
                 <CustomLink to='/Login'><li className={styles['header-li']}>Login</li></CustomLink>

@@ -38,10 +38,9 @@ export const loginUser = createAsyncThunk(
                     email,
                     password
                 })
-                if(data.token){
-                    window.localStorage.setItem('token', data.token)
-                }
-    
+                
+                    if(data.token) window.localStorage.setItem('token', data.token)
+                
                 return data
             }catch(err){
                 console.log(err)
@@ -50,7 +49,7 @@ export const loginUser = createAsyncThunk(
         ) // 1аргумент(название слайса, название ф-ции)
     
         export const getMe = createAsyncThunk(
-            'auth/registerUser',
+            'auth/getMe',
             async () => {
                 try{
                     const {data} = await axios.get('/getMe')
@@ -78,9 +77,9 @@ export const authSlice = createSlice({
             state.isLoading = true
             state.status = null
         },
-        [registerUser.fulfilled] : (state, action)=>{  //action-ответ с бэка
+        [registerUser.fulfilled] : (state, action) => {  //action-ответ с бэка
             state.isLoading = false
-            state.status = action.payload.message
+            state.status = action.payload.message || null
             state.user = action.payload.user
             state.token = action.payload.token
         },
@@ -94,7 +93,7 @@ export const authSlice = createSlice({
         },
         [loginUser.fulfilled] : (state, action)=>{  //action-ответ с бэка
             state.isLoading = false
-            state.status = action.payload.message
+            state.status = action.payload.message || null
             state.user = action.payload.user
             state.token = action.payload.token
         },

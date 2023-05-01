@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react';
-import {Formik, Form, Field} from 'formik';
+import {Formik, Form} from 'formik';
 import CustomField from '../CustomField';
 import { SignupSchema } from '../../validators/validationSchems';
 import styles from './Login.module.css';
@@ -15,7 +15,7 @@ const initialState ={
     password: '',
 }
 
-const Login = (props) => {
+const Signup = (props) => {
     const isAuth = useSelector(checkAuth)
     const dispatch = useDispatch()
     const {status} = useSelector(state => state.auth)
@@ -27,6 +27,7 @@ const Login = (props) => {
         }
         if(isAuth){
             navigate('/')
+            //console.log(isAuth)
         }
     },[status, isAuth, navigate])
 
@@ -45,10 +46,10 @@ const Login = (props) => {
     }
 
     const submitHandler = (values,{resetForm}) => {
-        console.log(values);
          try{
-             dispatch(registerUser(values));
-             resetForm()
+             const a = dispatch(registerUser(values));
+             console.log(a)
+             //resetForm()
          }catch(err){
              console.log(err)
          }
@@ -74,7 +75,7 @@ const Login = (props) => {
                         <CustomField type='text' name='email' placeholder='Enter your email' style={inputStyle}/>
                         <CustomField type='password' name='password' placeholder='Enter your password' style={inputStyle}/>
                         <div className={styles.remind}>
-                            <Link to='/Login'>Уже зарегестрированы?</Link>
+                            <Link to='/Login'>Вже зареєстровані?</Link>
                         </div>
                         <button type='submit' className={styles.loginButton}>LOGIN</button>
                     </Form>
@@ -87,4 +88,4 @@ const Login = (props) => {
     );
 }
 
-export default Login;
+export default Signup;

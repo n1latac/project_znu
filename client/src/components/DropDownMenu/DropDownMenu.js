@@ -20,7 +20,7 @@ function DropDownMenu(props) {
             <CustomLink to={path}> <li className={styles['dropDown-li-auth']}>{title}</li></CustomLink> 
 
           ) : (
-            <li className={styles['dropDown-li-notAuth']} title='нужно зарегестрироваться'>{title}</li>
+            <li className={styles['dropDown-li-notAuth']} title='потрібно зареєструватися'>{title}</li>
           )
         )
     }

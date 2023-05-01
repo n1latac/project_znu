@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Formik, Form, Field} from 'formik';
+import {Formik, Form} from 'formik';
 import CustomField from '../CustomField';
 import { LoginSchema } from '../../validators/validationSchems';
 import styles from './LogInForm.module.css';
@@ -19,6 +19,7 @@ const Login = (props) => {
     const {status} = useSelector(state => state.auth)
     const navigate = useNavigate()
 
+
     useEffect(()=>{
         if(status){
             toast(status)
@@ -29,7 +30,6 @@ const Login = (props) => {
     },[status, isAuth, navigate])
 
     const submitHandler = (values,{resetForm}) => {
-        console.log(values);
          try{
              dispatch(loginUser(values));
              resetForm()
@@ -69,8 +69,8 @@ const Login = (props) => {
                         <p className={styles.title}>LOGIN TO YOUR ACCOUNT</p>
                         <CustomField type='text' name='email' placeholder='Enter your email' style={inputStyle}/>
                         <CustomField type='password' name='password' placeholder='Enter your password' style={inputStyle}/>
-                        <div className={styles.remind}>
-                            <Link to='/Signup'>Нет аккаунта?</Link>
+                        <div className={styles.remind} >
+                            <Link to='/Signup'>Немає облікового запису?</Link>
                         </div>
                         <button type='submit' className={styles.loginButton}>LOGIN</button>
                     </Form>

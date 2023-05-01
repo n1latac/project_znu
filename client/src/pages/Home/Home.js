@@ -20,7 +20,7 @@ export default function Home() {
            <h1>Best html,css,JavaScript courses</h1>
            <p>lorem ipsu lorem lorem lorem lorem lorem lore  lorenm lorem lorem</p>
            {isAuth ? <Link to='Course/html/introduction' className={styles['main-btn']}>Start courses</Link> : 
-           <a className={styles['main-btn']} title='нужно зарегестрироваться'>Start courses</a> }
+           <a className={styles['main-btn']} title='потрібно зареєструватися'>Start courses</a> }
          </div>
       </section>
         <div className={styles.homeBox}>
