@@ -6,6 +6,8 @@
     display: flex;
     justify-content: space-between;
     height: 10vh;
+    padding: 0vh 10vh;
+    background-color: rgb(14, 12, 12);
 }
 .logo{
     align-self: left;

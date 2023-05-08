@@ -54,7 +54,6 @@ const Login = (props) => {
 
     return (
         <section className={styles.background}>
-            <Header style={{padding: '0vh 10vw', margin: '0 auto', background: 'rgb(0,0,0,0.3)', backdropFilter: 'blur(20px)'}}/>
             <div className={styles['signup-content']}>
             <div className={styles.container}>
             <Formik

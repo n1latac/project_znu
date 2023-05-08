@@ -7,7 +7,6 @@ import CustomLink from '../../components/CustomLink';
 function HtmlPage() {
   return (
     <div className={styles['courses-body']}>
-    <Header style={{padding: '0vh 10vw', margin: '0 auto', backgroundColor: 'black', backdropFilter: 'blur(20px)'}}/>
     <div className={styles['courses-content']}>
         <ul className={styles['courses-navbar']}>
         <li><CustomLink to='/Course/html/introduction' colorText='black'>Вступ</CustomLink></li>

@@ -15,7 +15,6 @@ export default function Home() {
   return (
     <div className={styles.body}>
       <section className={styles['main-content']}>
-      <Header style={{padding: '0vh 10vw', margin: '0 auto', background: 'transparent', backdropFilter: 'blur(20px)'}}/>
          <div className={styles['main-article']}>
            <h1>Best html,css,JavaScript courses</h1>
            <p>lorem ipsu lorem lorem lorem lorem lorem lore  lorenm lorem lorem</p>

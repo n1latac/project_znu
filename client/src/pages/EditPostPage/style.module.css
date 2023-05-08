@@ -1,0 +1,75 @@
+.blog-body{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-form{
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33.3%;
+    border: 1px solid black;
+}
+.blog-addFile{
+    border: 2px dotted black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    width: 100%;
+    font-size: 18px;
+}
+.blog-file{
+    visibility: hidden;
+    margin-bottom: -10px;
+}
+.blog-image{
+    display: flex;
+    object-fit: cover;
+    width: 100%;
+}
+.blog-title{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.title-text{
+    outline-style: none;
+}
+
+.blog-text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.blog-textarea{
+    outline-style: none;
+    height: 100px;
+}
+
+.blog-button{
+    display: flex;
+    gap: 2rem;
+}
+.blog-addButton{
+background-color: rgb(142, 137, 137);
+color: white;
+font-size: 15px;
+border: 0px;
+padding: 10px;
+border-radius: 5px;
+}
+.blog-deleteButton{
+background-color: red;
+color: white;
+font-size: 15px;
+border: 0px;
+padding: 10px;
+border-radius: 5px;
+}

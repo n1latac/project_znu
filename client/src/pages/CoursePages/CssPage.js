@@ -7,7 +7,6 @@ import CustomLink from '../../components/CustomLink';
 function CssPage() {
   return (
     <div className={styles['courses-body']}>
-    <Header style={{padding: '0vh 10vw', margin: '0 auto', backgroundColor: 'black', backdropFilter: 'blur(20px)'}}/>
     <div className={styles['courses-content']}>
         <ul className={styles['courses-navbar']}>
          <li><CustomLink to='/Course/css/introduction' colorText='black'>Що таке CSS?</CustomLink></li>

@@ -21,6 +21,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth, getMe } from "./redux/features/auth/authSlice";
+import AddPostPage from "./pages/AddPostPage";
+import Blog from "./pages/Blog";
+import Header from "./components/Header/Header";
+import PostPage from "./pages/PostPage";
+import UserPostPage from "./pages/UserPostPage";
+import EditPostPage from "./pages/EditPostPage";
 
 
 function App() {
@@ -34,10 +40,17 @@ function App() {
 
   return (
     <>
+          <Header/>
+
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="Login" element={<LoginPage/>}/>
         <Route path="Signup" element={<SignupPage/>}/>
+        <Route path="Post" element={<AddPostPage/>}/>
+        <Route path="Blog" element={<Blog/>}/>
+        <Route path=":id" element={<PostPage/>}/>
+        <Route path="posts/me" element={<UserPostPage/>}/>
+        <Route path=":id/edit" element={<EditPostPage/>}/>
         {isAuth ? (
           <>
           <Route path="Course/html/*" element={<HtmlPage/>}>
