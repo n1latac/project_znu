@@ -18,7 +18,6 @@ function UserPostPage() {
     useEffect(()=>{
         fetchMyPosts()
     },[])
-   console.log(posts)
   return (
     <div className={styles['container']}>
         <div className={styles['post']}>

@@ -4,25 +4,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(201, 204, 206);
 }
 
 .blog-form{
-    background-color: brown;
+    background-color: rgb(68, 68, 68);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 33.3%;
+    gap: 1rem;
     border: 1px solid black;
+    color: white;
 }
 .blog-addFile{
-    border: 2px dotted black;
+    border: 2px dotted rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
     width: 100%;
     font-size: 18px;
+    cursor: pointer;
 }
 .blog-file{
     visibility: hidden;
@@ -51,6 +55,7 @@
 .blog-textarea{
     outline-style: none;
     height: 100px;
+    resize: none;
 }
 
 .blog-button{

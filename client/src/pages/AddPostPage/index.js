@@ -47,7 +47,7 @@ function AddPostPage() {
       </div>
       <label className={styles['blog-title']}>
         Заголовок поста:
-        <input type='text' placeholder='Заголовок поста' className={styles['title-text']} value={title} onChange={event => setTitle(event.target.value)}/>
+        <input type='text' placeholder='Заголовок поста' maxLength='50' className={styles['title-text']} value={title} onChange={event => setTitle(event.target.value)}/>
       </label>
       <label className={styles['blog-text']}>
         Текст поста:
@@ -55,7 +55,7 @@ function AddPostPage() {
       </label>
       <div className={styles['blog-button']}>
         <button className={styles['blog-addButton']} onClick={submitHandler}>Додати</button>
-        <button className={styles['blog-deleteButton']} onClick={clearForm}>Видалити</button>
+        <button className={styles['blog-deleteButton']} onClick={clearForm}>Очистити</button>
       </div>
     </form>
     </div>

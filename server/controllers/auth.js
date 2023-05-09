@@ -16,7 +16,7 @@ export const register = async (req, res) => {
         const newUser = new User({
             firstname,
             lastname,
-            email,
+            email,  
             password: hash
         })
         

@@ -76,7 +76,7 @@ function EditPostPage() {
           </label>
           <div className={styles['blog-button']}>
             <button type='button' className={styles['blog-addButton']} onClick={submitHandler}>Оновити</button>
-            <button className={styles['blog-deleteButton']} onClick={clearForm}>Видалити</button>
+            <button className={styles['blog-deleteButton']} onClick={clearForm}>Очистити</button>
           </div>
         </form>
         </div>

@@ -3,7 +3,8 @@
     align-items: center;
     gap: 0.75rem;
 }
-.avatar{
+
+.user-avatar{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,9 +12,15 @@
     border-radius: 50%;
     width: 2.5rem; 
     height: 2.5rem;  
-    background-color: aquamarine;   
+    color: black;
+    background-color: rgb(255, 255, 255); 
+    border: 1px solid black;  
+}
+.user-name{
+    font-size: 11px;
 }
 .comment{
-    display: flex;
-color: white;    
+color: white; 
+width: 300px;
+word-wrap: break-word;
 }

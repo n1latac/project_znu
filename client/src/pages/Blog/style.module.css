@@ -24,6 +24,7 @@
 }
 .popular-post-container{
     flex-basis: 20%;
+    overflow: hidden;
 }
 .no-posts{
     font-size: 18px;

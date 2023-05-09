@@ -17,7 +17,9 @@
     opacity: 0.5;
 }
 .title{
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgb(210, 224, 239);
 }
 
 .text{

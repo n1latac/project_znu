@@ -76,7 +76,7 @@ function PostPage() {
         <div className={styles['container-post']}>
         
             <div className={styles['post']}>
-            <Link to={'/Blog'} style={{textDecoration: 'none'}}><button className={styles['back-button']}>
+            <Link to={'/Blog'} style={{textDecoration: 'none', width: '100px'}}><button className={styles['back-button']}>
             Назад
         </button></Link>
                 <div className={styles['post-body']}>
@@ -134,6 +134,8 @@ function PostPage() {
                 {
                     comments?.map((cmt)=>(
                         <Comment key={cmt._id} cmt={cmt}/>
+                        
+                        
                     ))
                 }
             </div>
