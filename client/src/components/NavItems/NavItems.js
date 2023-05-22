@@ -14,6 +14,11 @@ export const navItems = [
         path: '/Course/js',
         title: 'js',
         name: 'Courses'
+    },
+    {
+        path: '/Labs',
+        title: 'labs',
+        name: 'labs'
     }
     
     

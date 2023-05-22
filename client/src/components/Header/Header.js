@@ -20,7 +20,6 @@ export default function Header() {
     toast('Ви вийшли з системи.')
   }
   
-
   return (
     <>
       <div className={styles.header}>

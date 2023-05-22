@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.labs-content{
+    display: flex;
+    background-color: rgb(201, 204, 206); /* rgb(228, 230, 231)*/
+    position: relative;
+    min-height: 100vh;
+}
+.labs-navbar{
+    width: 20%;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 10vh;
+    max-height: 90vh;
+    z-index: 1;
+    padding-left: 30px;
+    padding-top: 00px;
+}
+.labs-navbar li{
+    padding-top: 15px;
+    color: black;
+}
+.labs-navbar:nth-child(n){
+    padding-bottom: 10px;
+}
+

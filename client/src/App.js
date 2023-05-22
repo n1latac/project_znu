@@ -27,6 +27,9 @@ import Header from "./components/Header/Header";
 import PostPage from "./pages/PostPage";
 import UserPostPage from "./pages/UserPostPage";
 import EditPostPage from "./pages/EditPostPage";
+import Lab from "./pages/LabsPage/Lab";
+import First from "./markup/labs/First";
+import Second from "./markup/labs/Second";
 
 
 function App() {
@@ -70,6 +73,10 @@ function App() {
           <Route path="what_js_doing" element={<WhatJsDoing/>}/>
           <Route path="what_js_doing_on_your_page" element={<WhatJsDoingOnPage/>}/>
           <Route path="adding_js_on_your_page" element={<AddingJs/>}/>
+        </Route>
+        <Route path="/Labs/*" element={<Lab/>}>
+          <Route path="first" element={<First/>}/>
+          <Route path="second" element={<Second/>}/>
         </Route>
         </>
         ) : null}

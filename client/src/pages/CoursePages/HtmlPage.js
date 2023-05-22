@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Course.module.css';
-import Header from '../../components/Header/Header';
 import { Link, Outlet } from 'react-router-dom';
 import CustomLink from '../../components/CustomLink';
 
