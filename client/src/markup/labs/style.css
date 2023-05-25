@@ -1,0 +1,5 @@
+.gui-container {
+    position: absolute;
+    top: 10vh; /* Установите желаемое значение отступа от верха экрана */
+    right: 20px;
+  }

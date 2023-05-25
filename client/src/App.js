@@ -30,6 +30,13 @@ import EditPostPage from "./pages/EditPostPage";
 import Lab from "./pages/LabsPage/Lab";
 import First from "./markup/labs/First";
 import Second from "./markup/labs/Second";
+import Third from "./markup/labs/Third";
+import Fourth from "./markup/labs/Fourth";
+import Fifth from "./markup/labs/Fifth";
+import Sixth from "./markup/labs/Sixth";
+import Seventh from "./markup/labs/Seventh";
+import Eighth from "./markup/labs/Eighth";
+import Ninth from "./markup/labs/Ninth";
 
 
 function App() {
@@ -77,6 +84,14 @@ function App() {
         <Route path="/Labs/*" element={<Lab/>}>
           <Route path="first" element={<First/>}/>
           <Route path="second" element={<Second/>}/>
+          <Route path="third" element={<Third/>}/>
+          <Route path="fourth" element={<Fourth/>}/>
+          <Route path="fifth" element={<Fifth/>}/>
+          <Route path="sixth" element={<Sixth/>}/>
+          <Route path="seventh" element={<Seventh/>}/>
+          <Route path="eighth" element={<Eighth/>}/>
+          <Route path="ninth" element={<Ninth/>}/>
+
         </Route>
         </>
         ) : null}

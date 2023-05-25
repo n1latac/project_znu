@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import dat from 'dat.gui';
+import './style.css'
 
 const Second = () => {
-  const mountRef = useRef(null);
+  const mountRef = useRef(null);  
   const guiRef = useRef(null);
+
 
   useEffect(() => {
     const textureloader = new THREE.TextureLoader();
@@ -108,8 +110,10 @@ const Second = () => {
       'Prism material': 'Phong',
     };
 
-     const gui = new dat.GUI();
+    const gui = new dat.GUI({ autoPlace: false }); // Создание панели dat.gui с параметром autoPlace: false
     guiRef.current = gui; // сохраняем ссылку на интерфейс
+    const guiContainer = document.querySelector('.gui-container');
+    guiContainer.appendChild(gui.domElement);
 
     gui.add(parameters, 'Ambient light intensity', 0.0, 1.0, 0.1).onChange(
       (value) => {
@@ -156,12 +160,18 @@ const Second = () => {
     window.addEventListener('resize', handleWindowResize);
 
     return () => {
-        window.removeEventListener('resize', handleWindowResize);
-        guiRef.current.destroy(); // удаляем интерфейс
+      window.removeEventListener('resize', handleWindowResize);
+      guiRef.current.destroy(); // удаляем интерфейс
+
     };
   }, []);
 
-  return <div ref={mountRef} />;
+  return (
+    <>
+  <div style={{width: '80vw', overflow: 'hidden'}} ref={mountRef} />
+  <div className={'gui-container'}></div> {/* Контейнер для размещения панели dat.gui */}
+  </>
+  )
 };
 
 export default Second;
