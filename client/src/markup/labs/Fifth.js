@@ -3,16 +3,14 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import dat from 'dat.gui';
 
-const Fifth = () => {
-  const canvasRef = useRef(null);
+const MyThreeComponent = () => {
+  const containerRef = useRef(null);
   const guiRef = useRef(null);
 
 
   useEffect(() => {
-    let renderer, scene, camera, controls, gui;
-
-    const init = () => {
-      renderer = window.WebGLRenderingContext
+    const initThree = () => {
+      const renderer = window.WebGLRenderingContext
         ? new THREE.WebGLRenderer({ antialias: true })
         : new THREE.CanvasRenderer();
       renderer.setClearColor(new THREE.Color(0x343538));
@@ -20,11 +18,9 @@ const Fifth = () => {
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-      canvasRef.current.appendChild(renderer.domElement);
+      const scene = new THREE.Scene();
 
-      scene = new THREE.Scene();
-
-      camera = new THREE.PerspectiveCamera(
+      const camera = new THREE.PerspectiveCamera(
         45,
         window.innerWidth / window.innerHeight,
         0.1,
@@ -33,7 +29,7 @@ const Fifth = () => {
       camera.position.set(50, 40, 50);
       camera.lookAt(0, 5, 0);
 
-      controls = new OrbitControls(camera, renderer.domElement);
+      const controls = new OrbitControls(camera, renderer.domElement);
       controls.rotateSpeed = 0.7;
 
       const plane = new THREE.Mesh(
@@ -84,14 +80,7 @@ const Fifth = () => {
       Directional.add(dirhelper);
       scene.add(Directional);
 
-      const spotlight = new THREE.SpotLight(
-        0xFE9845,
-        0.6,
-        160,
-        Math.PI / 6,
-        0.09,
-        1
-      );
+      const spotlight = new THREE.SpotLight(0xFE9845, 0.6, 160, Math.PI / 6, 0.09, 1);
       spotlight.position.set(12, 30, 20);
       spotlight.castShadow = true;
       spotlight.shadow.mapSize.width = 512;
@@ -113,8 +102,8 @@ const Fifth = () => {
       const pointhelper = new THREE.PointLightHelper(pointlight, 4);
       Pointlight.add(pointhelper);
 
-      const gui = new dat.GUI({ autoPlace: false }); // Создание панели dat.gui с параметром autoPlace: false
-      guiRef.current = gui; // сохраняем ссылку на интерфейс
+      const gui = new dat.GUI();
+      guiRef.current = gui; 
       const guiContainer = document.querySelector('.gui-container');
       guiContainer.appendChild(gui.domElement);
 
@@ -149,15 +138,9 @@ const Fifth = () => {
           else scene.remove(Spotlight);
         });
       spotlightGUI.add(spotlight, 'intensity', 0.0, 1.0, 0.05);
-      spotlightGUI
-        .add(spotlight, 'angle', 0.05, 1.0)
-        .onChange(() => spothelper.update());
-      spotlightGUI
-        .add(spotlight, 'penumbra', 0.0, 0.5)
-        .onChange(() => spothelper.update());
-      spotlightGUI
-        .add(spotlight, 'decay', 0.0, 2.0, 0.1)
-        .onChange(() => spothelper.update());
+      spotlightGUI.add(spotlight, 'angle', 0.05, 1.0).onChange(() => spothelper.update());
+      spotlightGUI.add(spotlight, 'penumbra', 0.0, 0.5).onChange(() => spothelper.update());
+      spotlightGUI.add(spotlight, 'decay', 0.0, 2.0, 0.1).onChange(() => spothelper.update());
       spotlightGUI
         .add(spotlight.position, 'x', -30, 30, 1)
         .name('position X')
@@ -206,24 +189,19 @@ const Fifth = () => {
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
       };
+
+      containerRef.current.appendChild(renderer.domElement);
     };
 
-    init();
-
-    return () => {
-      guiRef.current.destroy(); // удаляем интерфейс
-      renderer.dispose();
-      scene.dispose();
-      controls.dispose();
-    };
+    initThree();
   }, []);
 
   return (
     <>
-  <div style={{width: '80vw', overflow: 'hidden'}} ref={canvasRef} />
-  <div className={'gui-container'}></div> {/* Контейнер для размещения панели dat.gui */}
+  <div style={{width: '80vw', overflow: 'hidden'}} ref={containerRef} />
+  <div className={'gui-container'}></div> 
   </>
   )
 };
 
-export default Fifth;
+export default MyThreeComponent;

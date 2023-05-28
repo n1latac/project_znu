@@ -37,6 +37,7 @@ import Sixth from "./markup/labs/Sixth";
 import Seventh from "./markup/labs/Seventh";
 import Eighth from "./markup/labs/Eighth";
 import Ninth from "./markup/labs/Ninth";
+import Tenth from './markup/labs/Tenth'
 
 
 function App() {
@@ -91,6 +92,7 @@ function App() {
           <Route path="seventh" element={<Seventh/>}/>
           <Route path="eighth" element={<Eighth/>}/>
           <Route path="ninth" element={<Ninth/>}/>
+          <Route path="tenth" element={<Tenth/>}/>
 
         </Route>
         </>

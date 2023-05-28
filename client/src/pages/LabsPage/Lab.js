@@ -17,6 +17,7 @@ function Lab() {
         <li><CustomLink to='/Labs/seventh' colorText='black'>Сьома лабораторна</CustomLink></li>
         <li><CustomLink to='/Labs/eighth' colorText='black'>Восьма лабораторна</CustomLink></li>
         <li><CustomLink to='/Labs/ninth' colorText='black'>Дев'ята лабораторна</CustomLink></li>
+        <li><CustomLink to='/Labs/tenth' colorText='black'>Десята лабораторна</CustomLink></li>
 
 
           

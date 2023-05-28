@@ -2,17 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import dat from 'dat.gui';
+import "./style.css"
 
-const Fourth = () => {
-  const canvasRef = useRef(null);
+const MyThreeComponent = () => {
+  const containerRef = useRef(null);
   const guiRef = useRef(null);
 
-
   useEffect(() => {
-    let renderer, scene, camera, controls, dirlight, gui;
-
-    const init = () => {
-      renderer = window.WebGLRenderingContext
+    const initThree = () => {
+      const renderer = window.WebGLRenderingContext
         ? new THREE.WebGLRenderer({ antialias: true })
         : new THREE.CanvasRenderer();
       renderer.setClearColor(new THREE.Color(0xC9CAD2));
@@ -20,11 +18,9 @@ const Fourth = () => {
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-      canvasRef.current.appendChild(renderer.domElement);
+      const scene = new THREE.Scene();
 
-      scene = new THREE.Scene();
-
-      camera = new THREE.PerspectiveCamera(
+      const camera = new THREE.PerspectiveCamera(
         45,
         window.innerWidth / window.innerHeight,
         0.1,
@@ -33,7 +29,7 @@ const Fourth = () => {
       camera.position.set(50, 40, 50);
       camera.lookAt(0, 5, 0);
 
-      controls = new OrbitControls(camera, renderer.domElement);
+      const controls = new OrbitControls(camera, renderer.domElement);
       controls.rotateSpeed = 0.7;
 
       const plane = new THREE.Mesh(
@@ -65,7 +61,7 @@ const Fourth = () => {
       const light = new THREE.AmbientLight(0xF7F8FF, 0.4);
       scene.add(light);
 
-      dirlight = new THREE.DirectionalLight(0xffffff, 0.75);
+      const dirlight = new THREE.DirectionalLight(0xffffff, 0.75);
       dirlight.castShadow = true;
       dirlight.shadow.camera.near = 1;
       dirlight.shadow.camera.far = 500;
@@ -80,11 +76,10 @@ const Fourth = () => {
       dirlight.position.set(-10, 29, 10);
       scene.add(dirlight);
 
-      const gui = new dat.GUI({ autoPlace: false }); // Создание панели dat.gui с параметром autoPlace: false
-      guiRef.current = gui; // сохраняем ссылку на интерфейс
+      const gui = new dat.GUI();
+      guiRef.current = gui; 
       const guiContainer = document.querySelector('.gui-container');
       guiContainer.appendChild(gui.domElement);
-
       gui.add(dirlight.position, 'x', -20, 20, 1).name('Dir.Light position X');
       gui.add(dirlight.position, 'y', 10, 30, 1).name('Dir.Light position Y');
       gui.add(dirlight.position, 'z', -20, 20, 1).name('Dir.Light position Z');
@@ -96,37 +91,33 @@ const Fourth = () => {
           dirlight.shadow.map.dispose();
           dirlight.shadow.map = null;
         });
+
+      const animate = () => {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      };
+
+      animate();
+
+      window.onresize = function () {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      };
+
+      containerRef.current.appendChild(renderer.domElement);
     };
 
-    const animate = () => {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    };
-
-    init();
-    animate();
-
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      guiRef.current.destroy(); // удаляем интерфейс
-    };
+    initThree();
   }, []);
 
   return (
     <>
-  <div style={{width: '80vw', overflow: 'hidden'}} ref={canvasRef} />
-  <div className={'gui-container'}></div> {/* Контейнер для размещения панели dat.gui */}
+  <div style={{width: '80vw', overflow: 'hidden'}} ref={containerRef} />
+  <div className={'gui-container'}></div> 
   </>
   )
 };
 
-export default Fourth;
+export default MyThreeComponent;
